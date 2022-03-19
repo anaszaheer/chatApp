@@ -1,0 +1,35 @@
+</head>
+	<body style="background-color:#F5F5F5">
+		<div class="join-container">
+			<header class="join-header">
+				<h1><i class="fas fa-smile"></i> ChatApp</h1>
+			</header>
+			<main class="join-main" >
+				<form  method="post" action="/api/">
+					{{#if error}}
+						<div class="alert alert-danger"><i class="fas fa-exclamation">Error</i><br/>{{error}}</div>
+					{{/if}}
+					<div class="form-control" style="width:100%; border-style:inherit;">
+						<label for="username">Username</label>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							placeholder="Enter username..."
+							required
+						/>
+            			<label for="password">Password</abel>
+						<input
+							type="password"
+							name="password"
+              				id="password"
+              				placeholder="Enter password.."
+							required
+						/>
+					</div>
+					<button type="submit" class="btn btn-outline-light">Login</button>
+                    <a href="/api/register" class="btn btn-outline-light">Go to Register Page</a>
+				</form>
+			</main>
+		</div>
+	</body>

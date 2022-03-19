@@ -1,0 +1,68 @@
+<style>
+  .render-message {
+    padding: 5px;
+    margin-bottom: 2px;
+    background-color: var(--light-color);
+    border-radius: 5px;
+  }
+
+  .render-message .meta {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--dark-color-b);
+    opacity: 0.7;
+    margin-bottom: 7px;
+  }
+
+  .message .text{
+    color:black;
+  }
+
+  .chat-messages .message {
+    color:black;
+    background-color:primary;
+  }
+</style>
+<input type="hidden" name="" id="roomhiddenid" value="{{chattingWith}}" />
+</head>
+
+<body style="background-color:#F5F5F5">
+  <div class="chat-container" style="border-style:groove ; border-radius: 15px;  ">
+    <header class="chat-header" style="background-color:primary;">
+      <h1><i class="bi bi-app-indicator"> <i class="fas fa-smile"></i> ChatApp</i></h1>
+      
+      {{!-- chatting with added here --}}
+      <p style="text-align:centre; font-size:22px;"><i class="bi bi-app-indicator">Chatting with:</i> <label>{{chattingWith}}</label></p>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        
+        {{!-- clear messages form --}}
+        <form class="clear-class">
+          <input type="submit" class="btn btn-outline-light me-md-2" type="button" value="Clear Messages"/>
+        </form>
+        
+        {{!-- logout button --}}
+        <a href="/api/logout" class="btn btn-outline-light" type="button">Logout</a>
+      </div>
+    
+    </header>
+    <main class="chat-main">
+
+      {{!-- adding chat messages here --}}
+      <div class="chat-window chat-messages" style="width:100%; overflow-x: hidden; overflow-y: auto;height: 450px;width: 68.9em;">
+
+      </div>
+    </main>
+    <div class="chat-form-container" style="background-color:primary">
+      <form class="chat-form">
+        <input class="chat-input" id="msg" type="text" placeholder="Enter Message" required autocomplete="off" />
+        <button class="btn btn-outline-light"> Send</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js"
+    integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="../public/js/client.js"></script>
+</body>

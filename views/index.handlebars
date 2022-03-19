@@ -1,0 +1,30 @@
+</head>
+
+<body style="background-color:#F5F5F5;">
+	<script>
+		const token = "{{ token }}"
+  // save it in localstorage
+	</script>
+	<div class="join-container">
+		<header class="join-header">
+			<h1><i class="fas fa-smile"></i> ChatApp</h1>
+		</header>
+		<main class="join-main">
+			<form method="post" action="/api/index" id="selectForm">
+				<div class="form-control" style="border-style:inherit;">
+					<label for="username">Select a user to start Conversation with</label>
+					<select name="selectOpt" id="selectOpt" required>
+						<option value="">Select a user</option>
+						{{#each data}}
+						<option value="{{this}}">{{this}}</option>
+						{{/each}}
+					</select>
+				</div>
+				<button type="submit" id="selectBtn" class="btn btn-outline-light">Join Chat</button>
+				<a href="/api/logout" class="btn btn-outline-light">Logout</a>
+			</form>
+		</main>
+	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="../public/js/client.js"></script>
+</body>
